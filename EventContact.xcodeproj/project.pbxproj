@@ -13,6 +13,11 @@
 		74D166551D9DBDF100BD9929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D166541D9DBDF100BD9929 /* Assets.xcassets */; };
 		74D166581D9DBDF100BD9929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D166561D9DBDF100BD9929 /* LaunchScreen.storyboard */; };
 		74D166631D9DBDF100BD9929 /* EventContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166621D9DBDF100BD9929 /* EventContactTests.swift */; };
+		74D1666E1D9E9C0200BD9929 /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74D1666D1D9E9C0200BD9929 /* User.plist */; };
+		74D166711D9EAE9A00BD9929 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166701D9EAE9A00BD9929 /* HomeViewController.swift */; };
+		74D166761D9EB4E800BD9929 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D166751D9EB4E800BD9929 /* MessageUI.framework */; };
+		74D166781D9EB53300BD9929 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166771D9EB53300BD9929 /* LoginViewController.swift */; };
+		74D1667A1D9EB53E00BD9929 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166791D9EB53E00BD9929 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		74D1665E1D9DBDF100BD9929 /* EventContactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventContactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D166621D9DBDF100BD9929 /* EventContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventContactTests.swift; sourceTree = "<group>"; };
 		74D166641D9DBDF100BD9929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D1666D1D9E9C0200BD9929 /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
+		74D166701D9EAE9A00BD9929 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		74D166751D9EB4E800BD9929 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		74D166771D9EB53300BD9929 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		74D166791D9EB53E00BD9929 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D166761D9EB4E800BD9929 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +73,7 @@
 				74D1664C1D9DBDF100BD9929 /* EventContact */,
 				74D166611D9DBDF100BD9929 /* EventContactTests */,
 				74D1664B1D9DBDF100BD9929 /* Products */,
+				74D166741D9EB4E700BD9929 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +89,14 @@
 		74D1664C1D9DBDF100BD9929 /* EventContact */ = {
 			isa = PBXGroup;
 			children = (
+				74D1666F1D9EAE6200BD9929 /* Controllers */,
 				74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */,
 				74D1664F1D9DBDF100BD9929 /* ViewController.swift */,
 				74D166511D9DBDF100BD9929 /* Main.storyboard */,
 				74D166541D9DBDF100BD9929 /* Assets.xcassets */,
 				74D166561D9DBDF100BD9929 /* LaunchScreen.storyboard */,
 				74D166591D9DBDF100BD9929 /* Info.plist */,
+				74D1666D1D9E9C0200BD9929 /* User.plist */,
 			);
 			path = EventContact;
 			sourceTree = "<group>";
@@ -94,6 +108,24 @@
 				74D166641D9DBDF100BD9929 /* Info.plist */,
 			);
 			path = EventContactTests;
+			sourceTree = "<group>";
+		};
+		74D1666F1D9EAE6200BD9929 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74D166701D9EAE9A00BD9929 /* HomeViewController.swift */,
+				74D166771D9EB53300BD9929 /* LoginViewController.swift */,
+				74D166791D9EB53E00BD9929 /* RegisterViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		74D166741D9EB4E700BD9929 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74D166751D9EB4E800BD9929 /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +214,7 @@
 				74D166581D9DBDF100BD9929 /* LaunchScreen.storyboard in Resources */,
 				74D166551D9DBDF100BD9929 /* Assets.xcassets in Resources */,
 				74D166531D9DBDF100BD9929 /* Main.storyboard in Resources */,
+				74D1666E1D9E9C0200BD9929 /* User.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +234,9 @@
 			files = (
 				74D166501D9DBDF100BD9929 /* ViewController.swift in Sources */,
 				74D1664E1D9DBDF100BD9929 /* AppDelegate.swift in Sources */,
+				74D1667A1D9EB53E00BD9929 /* RegisterViewController.swift in Sources */,
+				74D166781D9EB53300BD9929 /* LoginViewController.swift in Sources */,
+				74D166711D9EAE9A00BD9929 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
