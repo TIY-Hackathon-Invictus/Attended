@@ -18,6 +18,11 @@
 		74D166761D9EB4E800BD9929 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D166751D9EB4E800BD9929 /* MessageUI.framework */; };
 		74D166781D9EB53300BD9929 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166771D9EB53300BD9929 /* LoginViewController.swift */; };
 		74D1667A1D9EB53E00BD9929 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166791D9EB53E00BD9929 /* RegisterViewController.swift */; };
+		74D1667F1D9EF42400BD9929 /* EventContactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1667E1D9EF42400BD9929 /* EventContactAPI.swift */; };
+		74D166821D9EF4E900BD9929 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166811D9EF4E900BD9929 /* User.swift */; };
+		74D166841D9EF56500BD9929 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166831D9EF56500BD9929 /* Requests.swift */; };
+		74D166861D9EFD2D00BD9929 /* JSONToEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166851D9EFD2D00BD9929 /* JSONToEntity.swift */; };
+		74D166881D9EFE6500BD9929 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D166871D9EFE6500BD9929 /* UserStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		74D166751D9EB4E800BD9929 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		74D166771D9EB53300BD9929 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		74D166791D9EB53E00BD9929 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		74D1667E1D9EF42400BD9929 /* EventContactAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContactAPI.swift; sourceTree = "<group>"; };
+		74D166811D9EF4E900BD9929 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		74D166831D9EF56500BD9929 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		74D166851D9EFD2D00BD9929 /* JSONToEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONToEntity.swift; sourceTree = "<group>"; };
+		74D166871D9EFE6500BD9929 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				74D1664C1D9DBDF100BD9929 /* EventContact */,
-				74D166611D9DBDF100BD9929 /* EventContactTests */,
 				74D1664B1D9DBDF100BD9929 /* Products */,
 				74D166741D9EB4E700BD9929 /* Frameworks */,
 			);
@@ -89,9 +98,17 @@
 		74D1664C1D9DBDF100BD9929 /* EventContact */ = {
 			isa = PBXGroup;
 			children = (
-				74D1666F1D9EAE6200BD9929 /* Controllers */,
-				74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */,
+				74D1667E1D9EF42400BD9929 /* EventContactAPI.swift */,
+				74D166851D9EFD2D00BD9929 /* JSONToEntity.swift */,
+				74D166701D9EAE9A00BD9929 /* HomeViewController.swift */,
+				74D166771D9EB53300BD9929 /* LoginViewController.swift */,
+				74D166791D9EB53E00BD9929 /* RegisterViewController.swift */,
 				74D1664F1D9DBDF100BD9929 /* ViewController.swift */,
+				74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */,
+				74D166811D9EF4E900BD9929 /* User.swift */,
+				74D166871D9EFE6500BD9929 /* UserStore.swift */,
+				74D166831D9EF56500BD9929 /* Requests.swift */,
+				74D166611D9DBDF100BD9929 /* EventContactTests */,
 				74D166511D9DBDF100BD9929 /* Main.storyboard */,
 				74D166541D9DBDF100BD9929 /* Assets.xcassets */,
 				74D166561D9DBDF100BD9929 /* LaunchScreen.storyboard */,
@@ -108,17 +125,7 @@
 				74D166641D9DBDF100BD9929 /* Info.plist */,
 			);
 			path = EventContactTests;
-			sourceTree = "<group>";
-		};
-		74D1666F1D9EAE6200BD9929 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				74D166701D9EAE9A00BD9929 /* HomeViewController.swift */,
-				74D166771D9EB53300BD9929 /* LoginViewController.swift */,
-				74D166791D9EB53E00BD9929 /* RegisterViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		74D166741D9EB4E700BD9929 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -236,7 +243,12 @@
 				74D1664E1D9DBDF100BD9929 /* AppDelegate.swift in Sources */,
 				74D1667A1D9EB53E00BD9929 /* RegisterViewController.swift in Sources */,
 				74D166781D9EB53300BD9929 /* LoginViewController.swift in Sources */,
+				74D1667F1D9EF42400BD9929 /* EventContactAPI.swift in Sources */,
+				74D166881D9EFE6500BD9929 /* UserStore.swift in Sources */,
+				74D166841D9EF56500BD9929 /* Requests.swift in Sources */,
 				74D166711D9EAE9A00BD9929 /* HomeViewController.swift in Sources */,
+				74D166821D9EF4E900BD9929 /* User.swift in Sources */,
+				74D166861D9EFD2D00BD9929 /* JSONToEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

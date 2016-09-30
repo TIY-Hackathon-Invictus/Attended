@@ -10,6 +10,12 @@ import UIKit
 
 class LoginViewController: ViewController {
 
+    @IBOutlet var emailTextfield: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBAction func attemptLogin(_ sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

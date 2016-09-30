@@ -10,6 +10,15 @@ import UIKit
 
 class RegisterViewController: ViewController {
 
+    @IBOutlet var emailTextfield: UITextField!
+    @IBOutlet var firstNameTextfield: UITextField!
+    @IBOutlet var lastNameTextfield: UITextField!
+    @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet var confirmPasswordTextfield: UITextField!
+    
+    @IBAction func attemptRegistration(_ sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
