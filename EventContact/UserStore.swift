@@ -29,18 +29,18 @@ extension UserStore {
             
             var result: EventContactAuthResult
             
-            guard let unwrappedData = data else {
-                result = EventContactAuthResult.Failure(EventContactError.InvalidUsernameOrPassword)
+            guard let unwrappedData = data,
+                let json = EventContactAPI.dataToJSONData(unwrappedData) as? [String:Any] else {
+                    result = EventContactAuthResult.Failure(error: EventContactError.InvalidJSON, message: "Server error")
+                    return
+            }
+            
+            if let errorMessage = json["message"] as? String {
+                result = .Failure(error: EventContactError.UserDoesNotExist, message: errorMessage)
                 return
             }
             
-            guard (response as? HTTPURLResponse)?.statusCode != 200 else {
-                result = EventContactAuthResult.Failure(EventContactError.UserDoesNotExist)
-                return
-                
-            }
-            
-            result = EventContactAPI.currentUserFrom(data: unwrappedData)
+            result = EventContactAPI.currentUserFrom(json: json)
             
             switch result {
             case let .Success(user):

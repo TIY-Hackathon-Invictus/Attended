@@ -9,18 +9,19 @@
 import Foundation
 
 struct EventContactAPIConfig {
-    let baseURL = "http://event-contact-2016.herokuapp.com"
+    let baseURL = "http://invictus-event-contact.herokuapp.com"
     
 }
 
 enum EventContactEndpoint: String {
     case Login = "/login"
     case Register = "/register"
+    case Events = "/allEvents"
 }
 
 enum EventContactAuthResult {
     case Success(User)
-    case Failure(Error)
+    case Failure(error: Error, message: String)
 }
 
 enum EventContactUsersResult {
@@ -29,9 +30,9 @@ enum EventContactUsersResult {
 }
 
 enum EventContactError: Error {
-    case InvalidUsernameOrPassword
     case InvalidJSON
     case UserDoesNotExist
+    case CouldNotCreateUser
 }
 
 struct EventContactAPI {
@@ -39,19 +40,13 @@ struct EventContactAPI {
 }
 
 extension EventContactAPI {
-    
-    static func currentUserFrom(data: Data) -> EventContactAuthResult {
+    static func currentUserFrom(json: [String:Any]) -> EventContactAuthResult {
         
-        guard let responseJSON = EventContactAPI.dataToJSONData(data) else {
-                return .Failure(EventContactError.InvalidJSON)
+        guard let user = userFrom(dictionary: json) else {
+            return .Failure(error: EventContactError.InvalidJSON, message: "Internal server error")
         }
         
-        let responseDictionary = responseJSON as? [String:Any]
-        let user = userFrom(dict: responseDictionary!)
-        
-        print(user)
-        
-        return .Success(user!)
+        return .Success(user)
     }
 }
 
@@ -71,21 +66,16 @@ extension EventContactAPI {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
     }
     
-    static func dataToJSONData(_ data: Data?) -> Any? {
+    static func dataToJSONData(_ data: Data) -> Any? {
         
-        var json: Any?
-        let jsonData = (try? JSONSerialization.jsonObject(with: data!, options: []))
-        json = jsonData
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+            return nil
+        }
         
         return json
     }
     
-    fileprivate static func userFrom(dict: [String:Any]) -> User? {
-        
-//        guard let user = dictionary(dict, toEntity: User.init) else {
-//            return nil
-//        }
-        
-        return User(dict: dict)
+    fileprivate static func userFrom(dictionary: [String:Any]) -> User? {
+        return User(dict: dictionary)
     }
 }

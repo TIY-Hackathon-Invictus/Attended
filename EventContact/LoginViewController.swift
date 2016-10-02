@@ -63,13 +63,14 @@ extension LoginViewController {
         
         store.loginUser(requestBody: loginRequest) { (result) in
             switch result {
-            case .Success(_):
+            case let .Success(user):
                 let tabController = EventContactTabBarController()
-                tabController.user = self.store.user
+                tabController.user = user
                 self.show(tabController, sender: nil)
-            case let .Failure(error):
-                print("rekt")
-                self.alertUser(title: "Couldn't login", message: error.localizedDescription, action: "Try again")
+            case let .Failure(_, message):
+                print("\n\n\n\nERROR MESSAGE: \n\(message)")
+                self.alertUser(title: "Couldn't login", message: message, action: "Try again")
+                print(message)
             }
         }
         
@@ -84,6 +85,16 @@ extension LoginViewController {
         let alertAction = UIAlertAction(title: action, style: .default, handler: nil)
         ac.addAction(alertAction)
         
-        show(ac, sender: nil)
+        present(ac, animated: true) {
+            self.clearFieldsAndDisableLoginButton()
+        }
+    }
+    
+    fileprivate func clearFieldsAndDisableLoginButton() {
+        
+        emailTextfield.text = ""
+        passwordTextField.text = ""
+        loginButton.isEnabled = false
+        
     }
 }

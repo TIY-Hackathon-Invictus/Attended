@@ -25,7 +25,7 @@ struct LoginRequest: JSONable {
         let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
         
         let dataJSON = try? JSONSerialization.jsonObject(with: data!, options: [])
-        print(dataJSON)
+        print("LoginRequest:\n \(dataJSON)")
         
         return data
     }

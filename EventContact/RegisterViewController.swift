@@ -9,6 +9,7 @@
 import UIKit
 
 class RegisterViewController: ViewController {
+    let store = UserStore()
     
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var firstNameTextfield: UITextField!
@@ -42,32 +43,32 @@ extension RegisterViewController: UITextFieldDelegate {
 
 extension RegisterViewController {
     
-    @IBAction func attemptRegistration(_ sender: AnyObject) {
-        
-        guard passwordsMatch else {
-            return
-        }
-        
-        let firstName = firstNameTextfield.text!
-        let lastName = lastNameTextfield.text!
-        let email = emailTextfield.text!
-        let password = passwordTextfield.text!
-        
-        let registerRequest = RegisterRequest(firstName: firstName, lastName: lastName, email: email, password: password)
-        
-//        store.loginUser(requestBody: loginRequest) { (result) in
+//    @IBAction func attemptRegistration(_ sender: AnyObject) {
+//        
+//        guard passwordsMatch else {
+//            return
+//        }
+//        
+//        let firstName = firstNameTextfield.text!
+//        let lastName = lastNameTextfield.text!
+//        let email = emailTextfield.text!
+//        let password = passwordTextfield.text!
+//        
+//        let registerRequest = RegisterRequest(firstName: firstName, lastName: lastName, email: email, password: password)
+//        
+//        store. { (result) in
 //            switch result {
 //            case .Success(_):
 //                let tabController = EventContactTabBarController()
 //                tabController.user = self.store.user
 //                self.show(tabController, sender: nil)
-//            case let .Failure(error):
+//            case let .Failure(_, mes):
 //                print("rekt")
 //                self.alertUser(title: "Couldn't login", message: error.localizedDescription, action: "Try again")
 //            }
 //        }
-        
-    }
+//        
+//    }
     
     
 }
