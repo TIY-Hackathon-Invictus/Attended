@@ -11,7 +11,7 @@ import Foundation
 import Foundation
 import CoreData
 
-func dictionary<Entity>(_ dictionary: [String : Any], toEntity entityHandler: ([String : Any]) -> Entity?) -> Entity? {
+func dictionary<Entity>(_ dictionary: [String:Any], toEntity entityHandler: ([String:Any]) -> Entity?) -> Entity? {
     
     return entityHandler(dictionary)
 }

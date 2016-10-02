@@ -8,29 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 1-->
-        <scene sceneID="ZjL-r9-agZ">
-            <objects>
-                <viewController id="eP0-4d-mYg" customClass="HomeViewController" customModule="EventContact" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z0p-OX-53J"/>
-                        <viewControllerLayoutGuide type="bottom" id="EkW-jZ-kek"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7CU-PM-qsX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="E4H-rr-U9j"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FQT-YN-aF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4071" y="-1880"/>
-        </scene>
-        <!--Tab Bar Controller-->
+        <!--Event Contact Tab Bar Controller-->
         <scene sceneID="FyD-28-hc2">
             <objects>
-                <tabBarController id="xux-2a-feo" sceneMemberID="viewController">
+                <tabBarController id="xux-2a-feo" customClass="EventContactTabBarController" customModule="EventContact" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -40,12 +21,41 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="eP0-4d-mYg" kind="relationship" relationship="viewControllers" id="kL4-hN-agp"/>
+                        <segue destination="5gG-rW-xTA" kind="relationship" relationship="viewControllers" id="V15-qe-u6F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjq-nR-Veb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5199" y="-1880"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="86U-XG-liR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZp-m8-St3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="5gG-rW-xTA" customClass="EventsTableViewController" customModule="EventContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PvG-rN-y9z">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3fh-J0-jqd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3fh-J0-jqd" id="Dhq-yM-gC9">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5gG-rW-xTA" id="zH1-NK-4st"/>
+                            <outlet property="delegate" destination="5gG-rW-xTA" id="00I-82-sgn"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Events" id="vFS-X5-hZo"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-4294" y="-1881"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="SwO-d6-9az">
@@ -66,17 +76,23 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DlC-n2-lRd" userLabel="Form">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DlC-n2-lRd" userLabel="Form">
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mf-wD-TBz">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@mail.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2mf-wD-TBz" userLabel="Email">
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="pQ5-tE-RuS" id="GKC-ip-46H"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-PV-Htu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-PV-Htu" userLabel="Password">
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="pQ5-tE-RuS" id="wjL-eq-8ZO"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -84,6 +100,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0K-Ok-Ba6">
                                                 <state key="normal" title="Login"/>
+                                                <state key="disabled" title="Login"/>
                                                 <connections>
                                                     <action selector="attemptLogin:" destination="pQ5-tE-RuS" eventType="touchUpInside" id="NtS-FT-KjY"/>
                                                 </connections>
@@ -114,6 +131,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextfield" destination="2mf-wD-TBz" id="qZU-CN-0cT"/>
+                        <outlet property="loginButton" destination="u0K-Ok-Ba6" id="VWS-Gr-uEt"/>
                         <outlet property="passwordTextField" destination="Bch-PV-Htu" id="x9O-OV-i9p"/>
                     </connections>
                 </viewController>
@@ -146,6 +164,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="asx-DJ-4Ij" id="tI6-w7-bLJ"/>
+                                                </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8SY-f9-UiI">
                                                 <subviews>
@@ -153,6 +174,9 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="asx-DJ-4Ij" id="iiy-nA-AxA"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvx-NB-wmx">
                                                         <nil key="textColor"/>
@@ -165,11 +189,17 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="asx-DJ-4Ij" id="ob9-nM-8Gz"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNS-sM-QbE">
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="asx-DJ-4Ij" id="iOA-i3-3xn"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -178,7 +208,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZt-02-ajA">
                                                 <state key="normal" title="Register"/>
                                                 <connections>
-                                                    <action selector="attemptRegistration:" destination="asx-DJ-4Ij" eventType="touchUpInside" id="AhP-TV-6Pq"/>
+                                                    <action selector="attemptRegistration:" destination="asx-DJ-4Ij" eventType="touchUpInside" id="HiZ-9s-NO5"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-WW-DQr">
