@@ -72,9 +72,14 @@ extension RegisterViewController {
         store.registerUser(requestBody: registerRequest) { (result) in
             switch result {
             case let .Success(user):
-                let tabController = EventContactTabBarController()
-                tabController.user = user
-                self.show(tabController, sender: nil)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let navController = storyboard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
+                let eventsController = navController.topViewController as! EventsTableViewController
+                eventsController.currentUser = user
+                
+                self.show(navController, sender: nil)
             case let .Failure(_, message):
                 print("\n\n\n\nERROR MESSAGE: \n\(message)")
                 self.alertUser(title: "Couldn't create account", message: message, action: "Try again")

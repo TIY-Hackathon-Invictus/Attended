@@ -59,39 +59,46 @@ extension LoginViewController {
         let email = emailTextfield.text!
         let password = passwordTextField.text!
         
-        let loginRequest = LoginRequest(email: email, password: password)
+        let privateQueue = OperationQueue()
         
-        store.loginUser(requestBody: loginRequest) { (result) in
-            switch result {
-            case let .Success(user):
-                let tabController = EventContactTabBarController()
-                tabController.user = user
-                self.show(tabController, sender: nil)
-            case let .Failure(_, message):
-                print("\n\n\n\nERROR MESSAGE: \n\(message)")
-                self.alertUser(title: "Couldn't login", message: message, action: "Try again")
-                print(message)
+        privateQueue.addOperation {
+            let loginRequest = LoginRequest(email: email, password: password)
+            
+            self.store.loginUser(requestBody: loginRequest) { (result) in
+                
+                print("\n\n\n\n\(result)")
+                
+                switch result {
+                case let .Success(user):
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let navController = storyboard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
+                    let eventsController = navController.topViewController as! EventsTableViewController
+                    eventsController.currentUser = user
+                    
+                    self.show(navController, sender: nil)
+                case let .Failure(_, message):
+                    let ac = UIAlertController(title: "Couldn't login", message: message, preferredStyle: .alert)
+                    
+                    let alertAction = UIAlertAction(title: "Try again", style: .default, handler: nil)
+                    ac.addAction(alertAction)
+                    
+                    OperationQueue.main.addOperation {
+                        self.present(ac, animated: true) {
+                            self.clearFieldsAndDisableLoginButton()
+                        }
+                    }
+                }
             }
+            
         }
-        
     }
     
 }
 
 extension LoginViewController {
-    func alertUser(title: String, message: String, action: String) {
-        
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: action, style: .default, handler: nil)
-        ac.addAction(alertAction)
-        
-        present(ac, animated: true) {
-            self.clearFieldsAndDisableLoginButton()
-        }
-    }
     
     fileprivate func clearFieldsAndDisableLoginButton() {
-        
         emailTextfield.text = ""
         passwordTextField.text = ""
         loginButton.isEnabled = false

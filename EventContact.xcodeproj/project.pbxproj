@@ -11,6 +11,9 @@
 		747FCABC1DA02CCD000983D2 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747FCABB1DA02CCD000983D2 /* EventsTableViewController.swift */; };
 		747FCABE1DA05155000983D2 /* EventContactTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747FCABD1DA05155000983D2 /* EventContactTabBarController.swift */; };
 		747FCAC01DA16012000983D2 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747FCABF1DA16012000983D2 /* RequestTests.swift */; };
+		747FCAC21DA1C69A000983D2 /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747FCAC11DA1C69A000983D2 /* EventStore.swift */; };
+		747FCAC41DA1C6CA000983D2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747FCAC31DA1C6CA000983D2 /* Event.swift */; };
+		749732B71DA2A61300827EE5 /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749732B61DA2A61300827EE5 /* EventInfoViewController.swift */; };
 		74D1664E1D9DBDF100BD9929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */; };
 		74D166501D9DBDF100BD9929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D1664F1D9DBDF100BD9929 /* ViewController.swift */; };
 		74D166531D9DBDF100BD9929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D166511D9DBDF100BD9929 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 		747FCABB1DA02CCD000983D2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		747FCABD1DA05155000983D2 /* EventContactTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContactTabBarController.swift; sourceTree = "<group>"; };
 		747FCABF1DA16012000983D2 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		747FCAC11DA1C69A000983D2 /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		747FCAC31DA1C6CA000983D2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		749732B61DA2A61300827EE5 /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
 		74D1664A1D9DBDF100BD9929 /* EventContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D1664F1D9DBDF100BD9929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				74D166511D9DBDF100BD9929 /* Main.storyboard */,
+				749732B61DA2A61300827EE5 /* EventInfoViewController.swift */,
 				747FCABD1DA05155000983D2 /* EventContactTabBarController.swift */,
 				74D1667E1D9EF42400BD9929 /* EventContactAPI.swift */,
 				74D166851D9EFD2D00BD9929 /* JSONToEntity.swift */,
@@ -112,6 +119,8 @@
 				74D1664D1D9DBDF100BD9929 /* AppDelegate.swift */,
 				74D166811D9EF4E900BD9929 /* User.swift */,
 				74D166871D9EFE6500BD9929 /* UserStore.swift */,
+				747FCAC31DA1C6CA000983D2 /* Event.swift */,
+				747FCAC11DA1C69A000983D2 /* EventStore.swift */,
 				747FCAB91DA01A31000983D2 /* Requests.swift */,
 				74D166541D9DBDF100BD9929 /* Assets.xcassets */,
 				74D166561D9DBDF100BD9929 /* LaunchScreen.storyboard */,
@@ -247,6 +256,7 @@
 			files = (
 				74D166501D9DBDF100BD9929 /* ViewController.swift in Sources */,
 				74D1664E1D9DBDF100BD9929 /* AppDelegate.swift in Sources */,
+				747FCAC21DA1C69A000983D2 /* EventStore.swift in Sources */,
 				74D1667A1D9EB53E00BD9929 /* RegisterViewController.swift in Sources */,
 				747FCABA1DA01A31000983D2 /* Requests.swift in Sources */,
 				74D166781D9EB53300BD9929 /* LoginViewController.swift in Sources */,
@@ -255,7 +265,9 @@
 				747FCABE1DA05155000983D2 /* EventContactTabBarController.swift in Sources */,
 				74D166821D9EF4E900BD9929 /* User.swift in Sources */,
 				747FCABC1DA02CCD000983D2 /* EventsTableViewController.swift in Sources */,
+				749732B71DA2A61300827EE5 /* EventInfoViewController.swift in Sources */,
 				74D166861D9EFD2D00BD9929 /* JSONToEntity.swift in Sources */,
+				747FCAC41DA1C6CA000983D2 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

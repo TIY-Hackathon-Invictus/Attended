@@ -16,7 +16,7 @@ struct EventContactAPIConfig {
 enum EventContactEndpoint: String {
     case Login = "/login"
     case Register = "/register"
-    case Events = "/allEvents"
+    case Events = "/events"
 }
 
 enum EventContactAuthResult {
@@ -29,10 +29,16 @@ enum EventContactUsersResult {
     case Failure(Error)
 }
 
+enum EventContactEventsResult {
+    case Success([Event])
+    case Failure(error: Error, message: String)
+}
+
 enum EventContactError: Error {
     case InvalidJSON
     case UserDoesNotExist
     case CouldNotCreateUser
+    case CouldNotFetchEvents
 }
 
 struct EventContactAPI {
@@ -77,5 +83,11 @@ extension EventContactAPI {
     
     fileprivate static func userFrom(dictionary: [String:Any]) -> User? {
         return User(dict: dictionary)
+    }
+    
+    static func eventsFrom(json: [[String:Any]]) -> EventContactEventsResult {
+        let events = json.flatMap(Event.init)
+        
+        return .Success(events)
     }
 }
